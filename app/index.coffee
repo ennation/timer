@@ -9,10 +9,13 @@ class Timer
   constructor: (@dom) ->
     @duration = 5 * minute
     @started = null
-    @elapsed = @bells = 0
+    @elapsed = 0
   addDuration: (delta) ->
     @duration += delta
-    @bells = 0
+    if @duration > 90 * minute
+      @duration = 90 * minute
+    if @duration < 0
+      @duration = 0
     @update()
 
   remaining: ->
@@ -57,7 +60,7 @@ class Timer
     @update()
   reset: ->
     @pause()
-    @elapsed = @bells = 0
+    @elapsed = 0
     @update()
   zero: ->
     @duration = 0;

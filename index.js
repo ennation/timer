@@ -17,12 +17,17 @@
       this.dom = dom;
       this.duration = 5 * minute;
       this.started = null;
-      this.elapsed = this.bells = 0;
+      this.elapsed = 0;
     }
 
     addDuration(delta) {
       this.duration += delta;
-      this.bells = 0;
+      if (this.duration > 90 * minute) {
+        this.duration = 90 * minute;
+      }
+      if (this.duration < 0) {
+        this.duration = 0;
+      }
       return this.update();
     }
 
@@ -86,7 +91,7 @@
 
     reset() {
       this.pause();
-      this.elapsed = this.bells = 0;
+      this.elapsed = 0;
       return this.update();
     }
 

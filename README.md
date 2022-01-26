@@ -1,48 +1,34 @@
 # Timer
 
+*Fork of [edemaine's Timer](https://github.com/edemaine/timer) with bell sound removed and additional features added:*
+
+- 5-second duration adjustments
+- Toggleable light and dark modes via the backslash key
+- Other miscellaneous personal tweaks
+
 This is a simple web app for counting down a desired number of minutes,
 such as time-limited presentations (e.g., final projects in a class).
 Main features:
 
-<ul>
-<li> Large highly visible (and responsive) countdown timer
-     showing remaining minutes and seconds.
-<li> Sounds one bell at two minutes remaining,
-     two bells at one minute remaining,
-     and three bells at zero minutes remaining.
-<li> After the timer expires, the display turns red, counts up from zero,
-     and a warning displays.
-<li> Controllable by keyboard interface (see below).
-</ul>
-
-## [Demo](http://erikdemaine.org/timer/)
+- Large highly visible (and responsive) countdown timer showing remaining minutes and seconds. 
+- After the timer expires, the display turns red, counts up from zero, and a warning displays.
+- Controllable by keyboard interface (see below).
 
 ## Usage
 
 Control the timer using the following keyboard commands:
 
-* `+`/`-`: Adjust the number of minutes on the timer (duration).
-* Spacebar (or `p`): Start/pause/resume the timer.
-* `r`: Reset the timer: stop timer and return to full duration.
+- `-`/`+`: Adjust the time on the timer in 1-minute increments.
+- `[`/`]`: Adjust the time on the timer in 5-second increments.
+- Spacebar (or `p`): Start/pause/resume the timer.
+- `r`: Reset the timer: stop timer and return to original duration set.
+- `\\`: Toggle the timer interface between light and dark mode.
 
 ## Installation
 
-To install this web app in your own web space,
-clone this repository and run `npm install`
-(to compile into HTML, CSS, and JavaScript).
-Then open `index.html`.
-
-## Related Apps
-
-I was inspired by the following related apps:
-<ul>
-<li> <a href="https://www.cs.hmc.edu/~geoff/countdowntimer.html">User-Configurable Countdown Timer</a>, a CGI web app by Geoff Kuenning. This is highly configurable and works well, except the sound playback is inconsistent (on Windows).
-<li> <a href="https://play.google.com/store/apps/details?id=org.tmurakam.presentationtimer">Presentation Timer</a>, an Android app by Takuya Murakami. This is what I used for years, and works great for identical-length presentations, but is tedious to reconfigure for presentations of varying lengths.
-</ul>
+To install this web app in your own web space, clone this repository and run `npm install`
+(to compile into HTML, CSS, and JavaScript). Then open `index.html`.
 
 ## License
 
 This software is licensed under an <a href="LICENSE">MIT license</a>.
-
-The <a href="bell.mp3">bell sound</a> is
-<a href="https://freesound.org/people/domrodrig/sounds/116779/">in the public domain</a>.

@@ -1,22 +1,9 @@
-bellCount = 3  # one bell at T minus 2, two bells at T minus 1, three bells at T
-bellSkip = 0.3
-interBellDelay = 400
+stylesheet = document.documentElement.style
 
 minute = 60 * 1000  # 1 minute
+sec5x = 5 * 1000  # 5 seconds
 
 renderTimePart = (x) -> x.toString().padStart 2, '0'
-
-ringTimeout = null
-ringBells = (count) ->
-  clearTimeout ringTimeout if ringTimeout?
-  bell = document.getElementById 'bell'
-  bell.pause()
-  bell.currentTime = bellSkip
-  bell.play()
-  .catch (e) -> console.error e.message
-  if count > 1
-    ringTimeout = setTimeout (-> ringBells count-1), interBellDelay
-  null
 
 class Timer
   constructor: (@dom) ->
@@ -39,14 +26,6 @@ class Timer
     ## Compute number of seconds left
     left = @remaining()
     left /= 1000
-
-    ## Bell ringing
-    mins = Math.ceil left / 60
-    if @started and mins < bellCount
-      bells = bellCount - mins
-      if @bells < bells <= bellCount
-        @bells = bells
-        ringBells @bells
 
     ## Update display
     if left < 0
@@ -95,12 +74,27 @@ window.onload = ->
 
   window.addEventListener 'keypress', handleKey = (e) ->
     switch e.key
+      when '\\'
+        # get current color values from stylesheet
+        backColor = getComputedStyle(document.documentElement).getPropertyValue("--color-bg")
+        foreColor = getComputedStyle(document.documentElement).getPropertyValue("--color-fg")
+        colonColor1 = getComputedStyle(document.documentElement).getPropertyValue("--colon-color-1")
+        colonColor2 = getComputedStyle(document.documentElement).getPropertyValue("--colon-color-2")
+        # switch background and foreground color values in stylesheet
+        stylesheet.setProperty("--color-bg", foreColor)
+        stylesheet.setProperty("--color-fg", backColor)
+        stylesheet.setProperty("--colon-color-1", colonColor2)
+        stylesheet.setProperty("--colon-color-2", colonColor1)
       when 'r', 'R'
         timer.reset()
       when '+', '='
         timer.addDuration minute
+      when ']'
+        timer.addDuration sec5x
       when '-', '_'
         timer.addDuration -minute
+      when '['
+        timer.addDuration -sec5x
       when ' ', 'p', 'P'
         timer.toggle()
 

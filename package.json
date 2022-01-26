@@ -16,6 +16,10 @@
     "email": "edemaine@mit.edu",
     "url": "http://erikdemaine.org/"
   },
+  "author": {
+    "name": "Elijah Nation",
+    "email": "ennation@mtu.edu"
+  },
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",

@@ -4,6 +4,7 @@
 
 - 5-second duration adjustments
 - Toggleable light and dark modes via the backslash key
+- Zero-out timer via the `0` key
 - Other miscellaneous personal tweaks
 
 This is a simple web app for counting down a desired number of minutes,

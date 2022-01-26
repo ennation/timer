@@ -59,6 +59,9 @@ class Timer
     @pause()
     @elapsed = @bells = 0
     @update()
+  zero: ->
+    @duration = 0;
+    @update()
 
   schedule: ->
     next = @remaining()
@@ -87,6 +90,8 @@ window.onload = ->
         stylesheet.setProperty("--colon-color-2", colonColor1)
       when 'r', 'R'
         timer.reset()
+      when '0'
+        timer.zero()
       when '+', '='
         timer.addDuration minute
       when ']'

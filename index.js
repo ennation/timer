@@ -90,6 +90,11 @@
       return this.update();
     }
 
+    zero() {
+      this.duration = 0;
+      return this.update();
+    }
+
     schedule() {
       var next;
       next = this.remaining();
@@ -123,6 +128,8 @@
         case 'r':
         case 'R':
           return timer.reset();
+        case '0':
+          return timer.zero();
         case '+':
         case '=':
           return timer.addDuration(minute);

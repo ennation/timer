@@ -1,0 +1,74 @@
+:root {
+  --color-fg: #efeada;
+  --color-bg: #181a1b;
+  --colon-color-1: #666;
+  --colon-color-2: #89867d;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+svg {
+  margin: 10px;
+  flex-grow: 1;
+}
+text {
+  text-anchor: middle;
+  font-size: 30px;
+  font-weight: 900;
+  fill: var(--color-fg);
+}
+.colon {
+  fill: var(--colon-color-1);
+}
+text.overtime {
+  font-size: 8px;
+}
+.overtime {
+  display: none;
+}
+.negative .overtime {
+  display: block;
+}
+.negative text {
+  fill: Crimson;
+}
+.help {
+  font-size: 14px;
+  display: fixed;
+  bottom: 0px;
+  padding: 3px 10px;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+}
+.help a,
+.help a:visited {
+  color: #ddd;
+}
+kbd {
+  background: #666;
+  padding: 0px 4px;
+}
+.button {
+  cursor: pointer;
+  user-select: none;
+}
+.button:hover {
+  background-color: SlateBlue;
+}
+.button:hover kbd {
+  background-color: DarkViolet;
+}
+kbd.button:hover {
+  background-color: DarkViolet;
+}
+.tip {
+  display: inline-block;
+}
+.tip + .tip {
+  margin-left: 2em;
+}
